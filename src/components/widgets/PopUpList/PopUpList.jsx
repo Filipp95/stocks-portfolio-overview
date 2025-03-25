@@ -1,8 +1,8 @@
 import ButtonElement from '../../elements/ButtonElement/ButtonElement';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { chooseStock, closePopUpList, addStockToPortfolio } from './../../../redux/portfolioSlice'
-import { useRef, memo, useCallback, useEffect } from 'react';
+import { chooseStock, closePopUpList, addStockToPortfolio, setWSConnection  } from './../../../redux/portfolioSlice'
+import { useRef, memo, useEffect } from 'react';
 
 import s from './PopUpList.module.scss'
 
@@ -13,20 +13,24 @@ const PopUpList = memo(() => {
     const isStockListOpen = useSelector(state => state.portfolio.isStockListOpen);
     const isQuantityFieldShown = useSelector(state => state.portfolio.isQuantityFieldShown);
     const availableStocks = useSelector(state => state.portfolio.availableStocks)
+    const stockData = useSelector(state => state.portfolio.stockData);
+    const isWSConnected = useSelector (state => state.portfolio.isWSConnected)
 
-    const updateLocalStorageState = useCallback(() => {
-        if (localStorage.getItem("stockData").length > 2) {
-            dispatch({ type: "CONNECT_TO_SERVER" })
+    useEffect(() => {
+        if (stockData && stockData.length > 0 && !isWSConnected) {
+            dispatch({ type: "CONNECT_TO_SERVER" });
+            dispatch(setWSConnection(true));
+        } else if ((!stockData || stockData.length === 0) && isWSConnected) {
+            dispatch({ type: "DISCONNECT" });
+            dispatch(setWSConnection(false));
         }
-        else dispatch ({type: "DISCONNECT"})
-    }, [dispatch])
+    }, [stockData, isWSConnected, dispatch]);
 
 
     useEffect(() => {
         if (isStockListOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }
-        updateLocalStorageState()
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };

@@ -69,6 +69,7 @@ const portfolioSlice = createSlice({
         error: null,
         availableStocks: [],
         stockData: dataFromLS.stockData,
+        isWSConnected: false,
     },
     reducers: {
         openStockList(state, action) {
@@ -128,6 +129,10 @@ const portfolioSlice = createSlice({
                 }
                 saveStocksToLS(state);
             }
+        }, 
+
+        setWSConnection(state, action) {
+            state.isWSConnected = action.payload;
         }
 
     },
@@ -147,6 +152,6 @@ const portfolioSlice = createSlice({
     }
 })
 
-export const { openStockList, chooseStock, closePopUpList, addStockToPortfolio, updateStockData, deleteStockElement } = portfolioSlice.actions;
+export const { openStockList, chooseStock, closePopUpList, addStockToPortfolio, updateStockData, deleteStockElement, setWSConnection } = portfolioSlice.actions;
 
 export default portfolioSlice.reducer;
