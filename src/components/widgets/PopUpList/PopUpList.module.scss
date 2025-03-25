@@ -1,0 +1,72 @@
+.pop_up_list_container__hided {
+    display: none;
+}
+
+.pop_up_list_container {
+    position: absolute;
+    border-radius: 25px;
+    top: 50%;
+    left: 50%;  
+    margin-top: -150px;
+    margin-left: -230px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 20;
+    background-color: rgba(183, 176, 176, 0.6);
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.currencies_list {
+    font-size: 2em;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.available_stock_item{
+    font-family: 'Mulish', sans-serif;
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.stock_name{
+    width: 140px;
+    text-align: center;
+}
+.stock_price{
+    width: 140px;
+    text-align: center;
+}
+
+.stock_price_increase{
+    width: 140px;
+    color: green;
+    text-align: center;
+}
+
+.stock_price_decrease{
+    width: 140px;
+    color: red;
+    text-align: center;
+}
+
+.input_quantity{
+    width: 150px;
+    height: 35px;
+}
+
+.quantity_field{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.quantity_field__hided{
+    display: none;
+}
+

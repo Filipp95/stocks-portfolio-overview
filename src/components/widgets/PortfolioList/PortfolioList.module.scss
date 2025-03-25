@@ -1,0 +1,41 @@
+.portfolio_list_wrapper{
+    margin: auto;
+    max-width: 1216px;
+    margin-top: 25px;
+    contain: none;
+    will-change: auto;
+    z-index: 0;
+}
+
+.portfolio_list_titles{
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    flex-direction: row;
+    max-width: 1216px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.portfolio_list_wrapper__hided{
+    display: none;
+}
+
+.portfolio_list_element{
+    width: 140px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.portfolio_element_increase{
+    width: 140px;
+    font-size: 1.8em;
+    text-align: center;
+    color: green;
+}
+
+.portfolio_element_decrease{
+    width: 140px;
+    font-size: 1.8em;
+    text-align: center;
+    color: red;
+}

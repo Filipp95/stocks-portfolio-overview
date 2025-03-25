@@ -1,0 +1,30 @@
+.header_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1216px;
+    height: 100px;
+    margin: auto;
+}
+
+.header_logo{ 
+    font-size: 3em;
+}
+
+.header_button{
+    width: 150px;
+    height: 36px;
+    background-color: #1f1f1f;
+    border-radius: 1.2em;
+    border: #1f1f1f;    
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.6em;
+}
+
+.header_button:active {
+    transition: ease-in-out;
+    transform: scale(0.98);
+}
+
