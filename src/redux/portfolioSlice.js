@@ -68,8 +68,7 @@ const portfolioSlice = createSlice({
         status: null,
         error: null,
         availableStocks: [],
-        stockData: dataFromLS.stockData,
-        isWSConnected: false,
+        stockData: dataFromLS.stockData
     },
     reducers: {
         openStockList(state, action) {
@@ -130,11 +129,6 @@ const portfolioSlice = createSlice({
                 saveStocksToLS(state);
             }
         }, 
-
-        setWSConnection(state, action) {
-            state.isWSConnected = action.payload;
-        }
-
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAvailableStocks.pending, (state) => {
@@ -152,6 +146,6 @@ const portfolioSlice = createSlice({
     }
 })
 
-export const { openStockList, chooseStock, closePopUpList, addStockToPortfolio, updateStockData, deleteStockElement, setWSConnection } = portfolioSlice.actions;
+export const { openStockList, chooseStock, closePopUpList, addStockToPortfolio, updateStockData, deleteStockElement} = portfolioSlice.actions;
 
 export default portfolioSlice.reducer;
